@@ -10,10 +10,12 @@ import bKnight from "../assets/Chess_ndt45.svg"
 import bRook from "../assets/Chess_rdt45.svg"
 import bQueen from "../assets/Chess_qdt45.svg"
 import bKing from "../assets/Chess_kdt45.svg"
+import GreenCircle from "../assets/green-circle.svg"
 
 const StateOfImage = {
     wPawn, wBishop, wKnight, wRook, wQueen, wKing,
     bPawn, bBishop, bKnight, bRook, bQueen, bKing,
+    GreenCircle
 }
 
 // The Pawn - P
@@ -25,6 +27,7 @@ const StateOfImage = {
 
 function chooseFigureFromState(state, coord) {
     switch (state[coord.y][coord.x]){
+        case "green" : return "green";
         case "wR" : return StateOfImage.wRook;
         case "wH" : return StateOfImage.wKnight;
         case "wB" : return StateOfImage.wBishop;

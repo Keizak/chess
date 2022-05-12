@@ -20,11 +20,40 @@ export const boardSlice = createSlice({
     initialState: InitialState,
     reducers: {
         setActiveSquare: (state,action) => {
-            console.log({...state,ActiveSquare:action.payload})
-            return {...state,ActiveSquare:action.payload}
+            const newState = showVariationsOfMove("wP",action.payload,state)
+            return {...state,ActiveSquare:action.payload,GameState:newState}
         },
     },
 })
+
+const showVariationsOfMove = (name,coord,currentState) => {
+    const currentStateCleared = currentState.YLines.map((el,index) =>{
+        return currentState.GameState[index].map(el => el === "green" ? "-" : el)
+    })
+    switch (name) {
+        case "wP" || "bP" :{
+            const XAxis = coord.x
+            const YAxis = coord.y
+            if(currentStateCleared[YAxis+1][XAxis] === "-"){
+                let result = {...currentStateCleared,[YAxis+1]: currentStateCleared[YAxis+1].map((el,index) => index === XAxis ? "green" : el)};
+                if(result[YAxis+2][XAxis] === "-" && YAxis+2 < 4){
+                    result = {...result,[YAxis+2]: currentStateCleared[YAxis+2].map((el,index) => index === XAxis ? "green" : el)};
+                }
+                else return result
+                return result
+
+            }
+        }
+        case "wR" || "bR" :{}
+        case "wH" || "bH" :{}
+        case "wB" || "bB" :{}
+        case "wQ" || "bQ" :{}
+        case "wK" || "bK" :{}
+        default :return null
+    }
+
+
+};
 
 // Action creators are generated for each case reducer function
 export const {setActiveSquare} = boardSlice.actions
