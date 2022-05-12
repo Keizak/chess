@@ -43,9 +43,6 @@ function chooseFigureFromState(state, coord) {
     }
 }
 
-const funct = () => {
-    alert('Юзик');
-}
 
 const helpers = {
     chooseFigureFromState: chooseFigureFromState
