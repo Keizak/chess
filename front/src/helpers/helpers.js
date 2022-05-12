@@ -10,12 +10,11 @@ import bKnight from "../assets/Chess_ndt45.svg"
 import bRook from "../assets/Chess_rdt45.svg"
 import bQueen from "../assets/Chess_qdt45.svg"
 import bKing from "../assets/Chess_kdt45.svg"
-import GreenCircle from "../assets/green-circle.svg"
+
 
 const StateOfImage = {
     wPawn, wBishop, wKnight, wRook, wQueen, wKing,
     bPawn, bBishop, bKnight, bRook, bQueen, bKing,
-    GreenCircle
 }
 
 // The Pawn - P
@@ -44,6 +43,9 @@ function chooseFigureFromState(state, coord) {
     }
 }
 
+const funct = () => {
+    alert('Юзик');
+}
 
 const helpers = {
     chooseFigureFromState: chooseFigureFromState
